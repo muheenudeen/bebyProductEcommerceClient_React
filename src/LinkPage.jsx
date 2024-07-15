@@ -1,0 +1,45 @@
+import React, { useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Navbar from './User/navbar/NavbarLink';
+import Home from './User/component/main/home/Home';
+import Shop from './User/component/main/shops/Shop';
+import AboutUs from './User/component/main/about/AboutUs';
+import ContactUs from './User/component/main/contacts/ContactUs';
+import Login from './User/Pages/Login/Login';
+import PaymentForm from './User/navbar/payment/PaymentForm';
+import SignUp from "./User/Pages/SignUp/SignUp.jsx";
+import Carts from './User/component/main/cartPage/Carts.jsx';
+import Logout from './User/Pages/logouts/Logout.jsx';
+
+const LinkPage = () => {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (product) => {
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+      setCart(cart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+  return (
+    <Router>
+      
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/shop" element={<Shop addToCart={handleAddToCart} />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/cart' element={<Carts cart={cart} setCart={setCart} />} />
+        <Route path='/paymentform' element={<PaymentForm />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/logout' element={<Logout/>}/>
+      </Routes>
+      
+    </Router>
+  );
+};
+
+export default LinkPage;
