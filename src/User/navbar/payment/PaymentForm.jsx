@@ -4,13 +4,8 @@ import { Link } from 'react-router-dom';
 const PaymentForm = () => {
     const [formData, setFormData] = useState({
         firstName: '',
-        lastName: '',
-        companyName: '',
-        place: '',
         location: '',
         phone: '',
-        pincode: '',
-        paymentName: '',
         atmNumber: '',
         cvv: ''
     });
@@ -33,21 +28,8 @@ const PaymentForm = () => {
                     <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700">Last Name</label>
-                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700">Company Name</label>
-                    <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700">Place</label>
-                    <input type="text" name="place" value={formData.place} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
-                    />
-                </div>
+
+               
                 <div className="mb-4">
                     <label className="block text-gray-700">Location</label>
                     <input type="text" name="location" value={formData.location} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
@@ -58,21 +40,9 @@ const PaymentForm = () => {
                     <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
                     />
                 </div>
+                
                 <div className="mb-4">
-                    <label className="block text-gray-700">Pincode</label>
-                    <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
-                    />
-                </div>
-
-                <h3 className="text-xl font-bold mb-4">Payment</h3>
-
-                <div className="mb-4">
-                    <label className="block text-gray-700">Name</label>
-                    <input type="text" name="paymentName" value={formData.paymentName} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700">ATM Number</label>
+                    <label className="block text-gray-700">Card Number</label>
                     <input type="text" name="atmNumber" value={formData.atmNumber} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required
                     />
                 </div>

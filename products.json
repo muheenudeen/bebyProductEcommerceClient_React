@@ -1,4 +1,6 @@
-[
+
+{
+"products":[
     {
         "id": 0,
         "url": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg",
@@ -72,3 +74,4 @@
         "price": "399"
     }
 ]
+}

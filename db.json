@@ -1,19 +1,34 @@
 {
   "users": [
     {
-      "id": "1",
-      "fname": "John",
-      "sname": "Doe",
-      "email": "john@example.com",
-      "password": "Password@123"
+      "id": "d9fb",
+      "fname": "nidha",
+      "sname": "salih",
+      "email": "nidhasalih@gmail.com",
+      "password": "Nidhasalih123$",
+      "confirmPassword": "Nidhasalih123$",
+      "cart": [],
+      "order": []
     },
     {
-      "id": "dea0",
+      "id": "63a7",
       "fname": "mueenu",
-      "sname": "feegefr",
+      "sname": "muhemmer",
       "email": "muheenudeen313@gmail.com",
       "password": "Mu@11111",
-      "confirmPassword": "Mu@11111"
+      "confirmPassword": "Mu@11111",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "e196",
+      "fname": "kfgjg",
+      "sname": "ttr",
+      "email": "rerer@gmail.com",
+      "password": "Mu@22222",
+      "confirmPassword": "Mu@22222",
+      "cart": [],
+      "order": []
     }
   ]
 }

@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../../navbar/NavbarLink';
+import Footer from '../../../Pages/footers/Footer';
 
 const Carts = ({ cart = [], setCart }) => {
   useEffect(() => {
-    // Persist cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+
+  }, []);
 
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -29,7 +30,12 @@ const Carts = ({ cart = [], setCart }) => {
   };
 
   return (
+  
+  <>
+  <Navbar/>
+  
     <div className="p-4">
+      
       <h2 className="text-2xl font-bold mb-4">Cart</h2>
       <div className="grid grid-cols-1 gap-4">
         {cart.map((item, index) => (
@@ -55,7 +61,10 @@ const Carts = ({ cart = [], setCart }) => {
       <Link to="/paymentform">
         <button className="bg-yellow-900 p-3 text-white">Payment</button>
       </Link>
+      <Footer/>
+      
     </div>
+    </>
   );
 };
 

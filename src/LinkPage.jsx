@@ -10,6 +10,11 @@ import PaymentForm from './User/navbar/payment/PaymentForm';
 import SignUp from "./User/Pages/SignUp/SignUp.jsx";
 import Carts from './User/component/main/cartPage/Carts.jsx';
 import Logout from './User/Pages/logouts/Logout.jsx';
+import Admin from './admin/compoent/navbarAdmin/Admin.jsx';
+import AdminHome from './admin/compoent/home/AdminHome.jsx';
+import UserList from './admin/compoent/userlists/UserList.jsx';
+import Product from './admin/compoent/products/product.jsx';
+
 
 const LinkPage = () => {
   const [cart, setCart] = useState([]);
@@ -25,7 +30,6 @@ const LinkPage = () => {
 
   return (
     <Router>
-      
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop addToCart={handleAddToCart} />} />
@@ -36,6 +40,12 @@ const LinkPage = () => {
         <Route path='/paymentform' element={<PaymentForm />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/logout' element={<Logout/>}/>
+        
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/adminhome' element={<AdminHome/>}/>
+        <Route path='/userlist' element={<UserList/>}/>
+        <Route path='/product' element={<Product/>}/>
+        
       </Routes>
       
     </Router>

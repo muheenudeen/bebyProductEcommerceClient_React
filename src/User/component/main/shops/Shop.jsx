@@ -5,28 +5,48 @@ import Footer from "../../../Pages/footers/Footer";
 
 function Shop({ addToCart }) {
   const [products, setProducts] = useState([]);
+  const [searchItem, setSearchItem] = useState('')
+  const handleSearchChange = (event) => {
+    setSearchItem(event.target.value)
+  }
 
   useEffect(() => {
     axios.get("public/Products.json")
       .then((response) => {
         setProducts(response.data);
+        
       })
       .catch((error) => {
         console.error("There was an error fetching the product data!", error);
       });
   }, []);
 
+  const fillerProduct = products.filter(product =>
+    product.description?.toLowerCase().includes(searchItem.toLowerCase())
+  )
   return (
     <>
       <Navbar />
+
+      <div className="flex items-center justify-center space-x-6 ">
+  <input
+    type="text"
+    placeholder="Search..."
+    value={searchItem}
+    className="hidden md:block p-2 rounded bg-gray-500 text-white m-10 "
+    onChange={handleSearchChange}
+  />
+</div>
+
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-stone-100">
-        {products.map((product) => (
+        {fillerProduct.map((product) => (
           <div key={product.id} className="p-4 bg-white rounded-lg shadow-lg">
             <img src={product.url} className="w-full h-48 object-cover rounded-t-lg" alt={product.description} />
             <div className="p-2">
               <p className="text-lg font-semibold">{product.description}</p>
               <p className="text-gray-700">${product.price}</p>
-              <button onClick={() => addToCart(product)} className="bg-blue-950 text-white p-3 rounded-2xl mt-4">Add to cart</button>
+              <button onClick={() => addToCart(product)?alert('error'):alert('success')}  className="bg-blue-950 text-white p-3 rounded-2xl mt-4">Add to cart</button>
             </div>
           </div>
         ))}
@@ -37,3 +57,5 @@ function Shop({ addToCart }) {
 }
 
 export default Shop;
+
+

@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import 'tailwindcss/tailwind.css';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [notification, setNotification] = useState('');
-
+  const navigate = useNavigate(); 
   const formik = useFormik({
     initialValues: {
       fname: "",
       sname: "",
       email: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      cart:[],
+      order:[]
     },
     onSubmit: async (values, { resetForm }) => {
       try {
@@ -20,6 +23,9 @@ function SignUp() {
         if (response.status === 201) {
           setNotification('Signup successful!');
           resetForm();
+          setTimeout(() => {
+            navigate('/login'); 
+          }, 2000); 
         }
       } catch (error) {
         console.error('There was an error!', error);
@@ -93,7 +99,7 @@ function SignUp() {
         <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full">Submit</button>
       </form>
       <div className="mt-4 text-center">
-        <button onClick={() => window.location.href = '/home'} className="text-blue-500 hover:underline" >Go to Home </button>
+        <Link to="/home" className="text-blue-500 hover:underline">Go to Home</Link>
       </div>
     </div>
   );

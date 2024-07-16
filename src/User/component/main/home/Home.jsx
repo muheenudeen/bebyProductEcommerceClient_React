@@ -18,6 +18,7 @@ function Home() {
 
   return (
     <>
+     
       <Navbar />
 
       <div className="flex flex-col lg:flex-row h-screen mt-5 bg-stone-100">

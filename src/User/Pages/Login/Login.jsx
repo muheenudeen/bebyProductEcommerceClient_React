@@ -3,9 +3,11 @@ import 'tailwindcss/tailwind.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); 
 
   const initialValues = {
     email: '',
@@ -19,11 +21,38 @@ function Login() {
 
   const onSubmit = async (values) => {
     try {
-      const response = await axios.post('http://localhost:8000/login', values);
-      if (response.status === 200) {
-        console.log('Login successful', response.data);
+      const response = await axios.get('http://localhost:8000/users', values);
+      // if (response.status === 200) {
+      //   alert('Login successful');
+      //   localStorage.setItem('id',)
+      //   setTimeout(() => {
+      //     navigate('/home'); 
+      //   }, 2000); 
+      // }
+      console.log(response.data);
+      let findedata=response.data.find(item=>{
+        return item.email===values.email && item.password===values.password
+      })
+      let findemail=response.data.find(item=>{
+        return item.email===values.email && item.password!==values.password
+      })
+      if(findedata)
+      {
+        localStorage.setItem("id",findedata.id)
+        alert('success full');
+        
+        navigate('/home');
       }
-    } catch (error) {
+      else if(findemail)
+      {
+        alert('enter password correctly')
+      }
+      else{
+        alert(' you dont have an account');
+        navigate('/signup');
+      }
+    }
+     catch (error) {
       console.error('There was an error!', error);
     }
   };
@@ -37,7 +66,7 @@ function Login() {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          {formik => (
+          {formik  => (
             <Form>
               <div className="mb-4">
                 <label htmlFor="email" className="block text-gray-700">Email</label>
@@ -55,7 +84,8 @@ function Login() {
                   onChange={() => setShowPassword(prev => !prev)} className="mr-2" />
                 <label htmlFor="showPassword" className="text-gray-700">Show Password</label>
               </div>
-              <button type="submit" disabled={!formik.isValid} className="w-full bg-blue-500 text-white p-2 rounded" >Submit</button>
+              
+              <button type="submit" disabled={!formik.isValid} className="w-full bg-blue-500 text-white p-2 rounded" >Log in</button>
             </Form>
           )}
         </Formik>
