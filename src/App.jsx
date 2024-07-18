@@ -10,14 +10,8 @@ function App() {
    <>
         <LinkPage />
        
-        
-
-   
-   
    </>
  
-  )
-
-}
+)}
 
 export default App;

@@ -13,7 +13,7 @@ import Logout from './User/Pages/logouts/Logout.jsx';
 import Admin from './admin/compoent/navbarAdmin/Admin.jsx';
 import AdminHome from './admin/compoent/home/AdminHome.jsx';
 import UserList from './admin/compoent/userlists/UserList.jsx';
-import Product from './admin/compoent/products/product.jsx';
+import AdminProduct from './admin/compoent/products/AdminProduct.jsx';
 
 
 const LinkPage = () => {
@@ -39,15 +39,15 @@ const LinkPage = () => {
         <Route path='/cart' element={<Carts cart={cart} setCart={setCart} />} />
         <Route path='/paymentform' element={<PaymentForm />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/logout' element={<Logout/>}/>
-        
-        <Route path='/admin' element={<Admin/>}/>
-        <Route path='/adminhome' element={<AdminHome/>}/>
-        <Route path='/userlist' element={<UserList/>}/>
-        <Route path='/product' element={<Product/>}/>
-        
+        <Route path='/logout' element={<Logout />} />
+
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/adminhome' element={<AdminHome />} />
+        <Route path='/userlist' element={<UserList />} />
+        <Route path='/adminproduct' element={<AdminProduct />} />
+
       </Routes>
-      
+
     </Router>
   );
 };

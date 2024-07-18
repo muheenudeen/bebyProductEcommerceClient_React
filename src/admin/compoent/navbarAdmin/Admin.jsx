@@ -16,7 +16,7 @@ function Admin() {
             <li>
               <Link
                 to="/adminhome"
-                className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 bg-amber-500"
+                className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 "
               >
                 Home
               </Link>
@@ -31,7 +31,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/product"
+                to="/adminproduct"
                 className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200"
               >
                 Product

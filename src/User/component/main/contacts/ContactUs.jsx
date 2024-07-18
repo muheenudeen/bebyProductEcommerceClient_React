@@ -10,7 +10,7 @@ const ContactUs = () => {
       email: '',
       subject: '',
       message: '',
-      image: 'https://img.freepik.com/premium-photo/sweet-cute-baby-boy-playing-with-laptop-computer-ai-generated-image_966797-2891.jpg', // Placeholder image URL
+      image: 'https://img.freepik.com/premium-photo/sweet-cute-baby-boy-playing-with-laptop-computer-ai-generated-image_966797-2891.jpg',
     },
   ]);
 

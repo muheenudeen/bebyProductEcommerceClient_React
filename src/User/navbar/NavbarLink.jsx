@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ cartCount }) => {
+
+const Navbar = ({ cartCount, onSearch }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchItem, setSearchItem] = useState('');
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -10,7 +12,12 @@ const Navbar = ({ cartCount }) => {
   };
 
   const handleProfileClick = () => {
-    navigate('/logout');
+    navigate('/signup');
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchItem(event.target.value);
+    onSearch(event.target.value); 
   };
 
   return (
@@ -27,9 +34,13 @@ const Navbar = ({ cartCount }) => {
           </ul>
         </div>
         <div className="flex items-center space-x-6">
-          <input type="text" placeholder="Search..." className="hidden md:block p-2 rounded bg-white text-grey" 
-
-/>
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            value={searchItem}
+            className="hidden md:block p-2 rounded bg-white text-grey"
+            onChange={handleSearchChange}
+          />
           <Link to="/cart" className="text-white relative">
             <svg fill="grey" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
               <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/>
@@ -46,9 +57,9 @@ const Navbar = ({ cartCount }) => {
             className="w-10 h-10 rounded-full cursor-pointer"
             onClick={handleProfileClick}
           />
-          <ul className='hidden md:flex ml-20 space-x-10'>
+          {/* <ul className='hidden md:flex ml-20 space-x-10'>
             <li><Link to="/login" className="text-white bg-blue-950 p-2 rounded-lg" onClick={()=>localStorage.clear()}>Login</Link></li>
-          </ul>
+          </ul> */}
           <button onClick={toggleMenu} className="md:hidden text-black focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -64,7 +75,13 @@ const Navbar = ({ cartCount }) => {
             <li><Link to="/about" className="block text-grey">About Us</Link></li>
             <li><Link to="/contact" className="block text-grey">Contact</Link></li>
             <li><Link to="/login" className="block text-grey" onClick={()=>localStorage.clear()}>Login</Link></li>
-            <input type="text" placeholder="Search..." className="block p-2 rounded bg-grey text-grey" />
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              value={searchItem}
+              className="block p-2 rounded bg-grey text-grey" 
+              onChange={handleSearchChange}
+            />
           </ul>
         </div>
       )}
