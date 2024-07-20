@@ -2,10 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Admin from '../navbarAdmin/Admin';
 import UpdateModal from '../componants/modal/UpdateModal';
-
+import AddModal from '../componants/modal/AddModal';
 const AdminProduct = () => {
     const [products, setProducts] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [showAddModal, setShowAddModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
@@ -28,7 +29,16 @@ const AdminProduct = () => {
 
     const handleUpdate = (product) => {
         setSelectedProduct(product);
-        setShowModal(true);
+        setShowUpdateModal(true);
+    };
+
+    const handleAddProduct = (newProduct) => {
+        axios.post("http://localhost:3031/products", newProduct)
+            .then(response => {
+                setProducts([...products, response.data]);
+                alert('Product added successfully');
+            })
+            .catch(error => console.log(error));
     };
 
     const handleUpdateProduct = (updatedProduct) => {
@@ -45,6 +55,12 @@ const AdminProduct = () => {
     return (
         <>
             <Admin />
+            <button
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded m-4"
+                onClick={() => setShowAddModal(true)}
+            >
+                Add Product
+            </button>
             <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {products.map((item) => (
                     <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden border-4 border-gray-400">
@@ -80,16 +96,24 @@ const AdminProduct = () => {
                 ))}
             </div>
 
-            {showModal && (
+            {showUpdateModal && (
                 <UpdateModal 
-                    show={showModal} 
-                    onClose={() => setShowModal(false)} 
+                    show={showUpdateModal} 
+                    onClose={() => setShowUpdateModal(false)} 
                     product={selectedProduct} 
                     onUpdate={handleUpdateProduct} 
                 />
             )}
+
+            {showAddModal && (
+                <AddModal 
+                    show={showAddModal} 
+                    onClose={() => setShowAddModal(false)} 
+                    onAdd={handleAddProduct} 
+                />
+            )}
         </>
     );
-}
+};
 
 export default AdminProduct;

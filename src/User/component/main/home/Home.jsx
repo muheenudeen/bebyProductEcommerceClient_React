@@ -7,7 +7,7 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("public/Products.json")
+    axios.get("http://localhost:3030/products")
       .then((response) => {
         setProducts(response.data);
       })

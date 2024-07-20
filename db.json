@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "id": "e196",
-      "fname": "kfgjg",
-      "sname": "ttr",
-      "email": "rerer@gmail.com",
-      "password": "Mu@22222",
-      "confirmPassword": "Mu@22222",
-      "cart": [],
-      "order": []
-    },
-    {
       "id": "c257",
       "fname": "muheenudheen",
       "sname": "muheenu",
@@ -29,6 +19,64 @@
       "confirmPassword": "Ma@888888",
       "cart": [],
       "order": []
+    },
+    {
+      "id": "a69e",
+      "fname": "muhammed",
+      "sname": "anas",
+      "email": "Anas@gmail.com",
+      "password": "An@555555",
+      "confirmPassword": "An@555555",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "d0aa",
+      "fname": "salu",
+      "sname": "salman",
+      "email": "salman@gmail.com",
+      "password": "Salman@222",
+      "confirmPassword": "Salman@222",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "096c",
+      "fname": "anandu",
+      "sname": "anu",
+      "email": "anandu@gmail.com",
+      "password": "An@111111",
+      "confirmPassword": "An@111111",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "9012",
+      "fname": "mgdf",
+      "sname": "dfgd",
+      "email": "muheendeen313@gmail.com",
+      "password": "Mu@999999",
+      "confirmPassword": "Mu@999999",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "5b31",
+      "fname": "ddad",
+      "sname": "asdad",
+      "email": "rerer@gmail.com",
+      "password": "Mu@11111",
+      "confirmPassword": "Mu@11111",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "fff7",
+      "firstName": "ert",
+      "location": "ert",
+      "phone": "34343",
+      "atmNumber": "434334",
+      "cvv": "443"
     }
   ]
 }

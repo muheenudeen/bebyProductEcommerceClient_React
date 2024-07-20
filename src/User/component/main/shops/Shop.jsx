@@ -14,7 +14,7 @@ function Shop({ addToCart }) {
 
 
   useEffect(() => {
-    axios.get("public/Products.json")
+    axios.get("http://localhost:3030/products")
       .then((response) => {
         setProducts(response.data);
         
@@ -46,6 +46,7 @@ function Shop({ addToCart }) {
             <img src={product.url} className="w-full h-48 object-cover rounded-t-lg" alt={product.description} />
             <div className="p-2">
               <p className="text-lg font-semibold">{product.description}</p>
+              <p >{product.name}</p>
               <p className="text-gray-700">${product.price}</p>
               <button onClick={() => addToCart(product)?Login(alert('error')):alert('success')}  className="bg-blue-950 text-white p-3 rounded-2xl mt-4">Add to cart</button>
             </div>

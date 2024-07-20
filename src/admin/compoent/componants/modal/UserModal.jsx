@@ -8,7 +8,7 @@ const UserModal = ({ isOpen, onClose, user }) => {
       <div className="bg-white p-8 rounded shadow-lg max-w-md w-full">
         <h2 className="text-2xl mb-4">User Details</h2>
         <p><strong>ID:</strong> {user.id}</p>
-        <p><strong>Name:</strong> {user.name}</p>
+        <p><strong>Name:</strong> {user.fname}</p>
         <p><strong>Email:</strong> {user.email}</p>
         <h3 className="text-xl mt-4 mb-2">Cart Items</h3>
         <p className='font-bold'>Number of cart:{user.cart.length}</p>
