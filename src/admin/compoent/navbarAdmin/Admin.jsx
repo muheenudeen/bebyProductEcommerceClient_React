@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../User/AuthContext/AuthContext';
 
 function Admin() {
+  const { isLoggedIn, logout} = useContext(AuthContext);
+
   return (
     <div className="w-full bg-white shadow-md">
       <div className="p-4 flex items-center justify-between">
@@ -38,12 +41,22 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/logout"
-                className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200"
-              >
-                Logout
-              </Link>
+            {isLoggedIn ? (
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWQNJtFsdtSeo-E-UPrgxU8qkQGISaSjCjXg&s"
+              alt="Profile"
+              className="w-10 h-10 rounded-full cursor-pointer"
+              onClick={logout}
+            />
+          ) : (
+            <Link to="/">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWQNJtFsdtSeo-E-UPrgxU8qkQGISaSjCjXg&s"
+                alt="Profile"
+                className="w-10 h-10 rounded-full cursor-pointer"
+              />
+            </Link>
+          )}
             </li>
           </ul>
         </nav>

@@ -71,12 +71,34 @@
       "order": []
     },
     {
-      "id": "fff7",
-      "firstName": "ert",
-      "location": "ert",
-      "phone": "34343",
-      "atmNumber": "434334",
-      "cvv": "443"
+      "id": "17b1",
+      "fname": "mueenu",
+      "sname": "ttr",
+      "email": "muheenudeen313@gmail.com",
+      "password": "Mu@11111",
+      "confirmPassword": "Mu@11111",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "8522",
+      "fname": "mueenu",
+      "sname": "muhemmer",
+      "email": "rerer@gmail.com",
+      "password": "Mu@33333",
+      "confirmPassword": "Mu@33333",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "b88c",
+      "fname": "mueenu",
+      "sname": "ttr",
+      "email": "muheendeen313@gmail.com",
+      "password": "Mu@22222",
+      "confirmPassword": "Mu@22222",
+      "cart": [],
+      "order": []
     }
   ]
 }

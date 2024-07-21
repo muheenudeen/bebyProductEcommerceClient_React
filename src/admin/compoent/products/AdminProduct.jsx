@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Admin from '../navbarAdmin/Admin';
 import UpdateModal from '../componants/modal/UpdateModal';
 import AddModal from '../componants/modal/AddModal';
+
+
 const AdminProduct = () => {
     const [products, setProducts] = useState([]);
     const [showUpdateModal, setShowUpdateModal] = useState(false);

@@ -1,17 +1,16 @@
-import React from "react";
-import LinkPage from "./LinkPage";
-import Admin from "./admin/compoent/navbarAdmin/Admin";
-import Navbar from "./User/navbar/NavbarLink";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LinkPage from './LinkPage';
+import { AuthProvider } from './User/AuthContext/AuthContext';
 
-
-function App() {
-
+const App = () => {
   return (
-   <>
+    <Router>
+      <AuthProvider>
         <LinkPage />
-       
-   </>
- 
-)}
+      </AuthProvider>
+    </Router>
+  );
+};
 
 export default App;
