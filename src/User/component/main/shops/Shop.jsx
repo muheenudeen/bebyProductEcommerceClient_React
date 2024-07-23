@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import Navbar from "../../../navbar/NavbarLink";  // Adjust the import if needed
-import Footer from "../../../Pages/footers/Footer";  // Adjust the import if needed
+import Navbar from "../../../navbar/NavbarLink"; 
+import Footer from "../../../Pages/footers/Footer";  
 import { AuthContext } from "../../../AuthContext/AuthContext";
 
 function Shop() {
@@ -11,7 +11,7 @@ function Shop() {
   const { addToCart, isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get("http://localhost:3030/products")
+    axios.get("http://localhost:3031/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -28,7 +28,7 @@ function Shop() {
     if (isLoggedIn) {
       addToCart(product);
     } else {
-      alert('Please log in to add items to the cart.');
+      alert('Please loging.');
     }
   };
 

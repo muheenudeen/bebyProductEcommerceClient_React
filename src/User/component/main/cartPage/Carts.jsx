@@ -1,10 +1,22 @@
 import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../../navbar/NavbarLink";
 import Footer from "../../../Pages/footers/Footer";
 import { AuthContext } from "../../../AuthContext/AuthContext";
+// import UserModal from '../componants/modal/UserModal';
+
 
 const Carts = () => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const totalAmount = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+
+  const handleCheckout = () => {
+    navigate('/paymentform', {
+      state: { amount: totalAmount, orderDetails: cart }
+    });
+  };
 
   return (
     <>
@@ -52,8 +64,11 @@ const Carts = () => {
               </div>
             ))}
             <div className="flex justify-end mt-10">
-              <h1 className="font-semibold text-2xl">Total: ${cart.reduce((total, product) => total + product.price * product.quantity, 0)}</h1>
+              <h1 className="font-semibold text-2xl">Total: ${totalAmount}</h1>
             </div>
+            <button onClick={handleCheckout} className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+              Checkout
+            </button>
           </div>
         </div>
       </div>

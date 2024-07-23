@@ -58,6 +58,8 @@ function SignUp() {
 
       return errors;
     }
+
+
   });
 
   return (
@@ -99,7 +101,7 @@ function SignUp() {
         <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full">Submit</button>
       </form>
       <div className="mt-4 text-center">
-        <Link to="/home" className="text-blue-500 hover:underline">Go to Home</Link>
+        <Link to="/" className="text-blue-500 hover:underline">Go to Home</Link>
       </div>
     </div>
   );

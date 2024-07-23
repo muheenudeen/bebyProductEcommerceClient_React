@@ -1,16 +1,10 @@
 {
   "products": [
     {
-      "id": "0",
-      "url": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg",
-      "description": "Colorful Birdies Cap Dress",
-      "price": "299"
-    },
-    {
       "id": "1",
       "url": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg",
       "description": "Extra Soft Touch Lamb Toys",
-      "price": "499"
+      "price": "4994"
     },
     {
       "id": "2",
@@ -43,16 +37,10 @@
       "price": "799"
     },
     {
-      "id": "7",
-      "url": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
-      "description": "Sunny Outdoor Set Yellow Dress",
-      "price": "4993"
-    },
-    {
       "id": "9",
       "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXOGcGOyqkDuQ4-g0yPU8R1EiikU8Bq6K9w&s",
       "description": "Meattime For Baby Nutrition",
-      "price": "799"
+      "price": "7999"
     },
     {
       "id": "10",

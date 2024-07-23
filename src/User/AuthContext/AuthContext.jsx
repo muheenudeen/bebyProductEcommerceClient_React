@@ -1,30 +1,65 @@
-// src/AuthContext/AuthContext.js
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cart, setCart] = useState([]);
+  const [order, setOrder] = useState([]);
+  const [userId, setUserId] = useState('');
+  // const [block,setIsBlock] = useState([])
+  // const [isBlock,setIsBlock]=useState(false)
   const navigate = useNavigate();
+  const id = localStorage.getItem('id');
 
   useEffect(() => {
-    const userId = localStorage.getItem('id');
+    const Id = localStorage.getItem('id');
+    setUserId(Id);
     if (userId) {
       setIsLoggedIn(true);
     }
+  }, [userId]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/users`)
+      .then(res => setOrder(res.data.order))
+      .catch(error => console.log(`error is ${error}`));
   }, []);
 
-  const login = (userId, email, password) => { // Added password parameter
-    localStorage.setItem('id', userId);
-    localStorage.setItem('email', email);
-    setIsLoggedIn(true);
-    if (email === 'admin@gmail.com' && password === '12345') {
-      navigate('/admin');
-    } else {
-      navigate('/adminHome');
-    }
+  const login = (email, password) => {
+    axios.get('http://localhost:8000/users')
+      .then((res) => {
+        let adminData = false;
+
+        if (email === 'admin@gmail.com' && password === '12345') {
+          adminData = true;
+        }
+
+        const findeData = res.data.find(item => item.email === email && item.password === password);
+        const exitData = res.data.find(item => item.email === email && item.password !== password);
+
+        if (adminData) {
+          toast.success('Welcome admin');
+          localStorage.setItem('id', email);
+          setIsLoggedIn(true);
+          setTimeout(() => navigate("/adminhome"), 1000);
+        } else if (findeData) {
+          toast.success('Login successful');
+          localStorage.setItem('id', findeData.id);
+          localStorage.setItem('user', JSON.stringify(findeData));
+          setIsLoggedIn(true);
+          setTimeout(() => navigate("/"), 1000);
+        } else if (exitData) {
+          toast.error('Enter your password correctly');
+        } else {
+          toast(`You don't have an account`, {});
+          setTimeout(() => navigate("/signup"), 1000);
+        }
+      })
+      .catch((error) => console.log("error", error));
   };
 
   const logout = () => {
@@ -33,11 +68,18 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(false);
     setCart([]);
     navigate('/login');
-    alert('Logged out successfully');
+    alert('logout');
   };
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+    const productExists = cart.some((item) => item.id === product.id);
+
+    if (productExists) {
+      toast.error('This product is already added to the cart');
+    } else {
+      setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+      toast.success('Product added to the cart');
+    }
   };
 
   const removeFromCart = (index) => {
@@ -72,7 +114,8 @@ export const AuthProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         incrementQuantity,
-        decrementQuantity
+        decrementQuantity,
+        order
       }}
     >
       {children}

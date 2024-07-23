@@ -26,9 +26,9 @@ function AdminHome() {
       });
   }, []);
 
-  const subTotalOrders = users.reduce((total, user) => {
-    return total + (user.orders ? user.orders.length : 0);
-  }, 0);
+  // const subTotalOrders = users.reduce((total, user) => {
+  //   return total + (user.orders ? user.orders.length : 0);
+  // }, 0);
 
   return (
     <>
@@ -39,9 +39,9 @@ function AdminHome() {
             <p className="text-xl font-semibold">Total Users: {users.length}</p>
             <p className="text-xl font-semibold">Total Products: {products.length}</p>
           </div>
-          <div className="bg-white p-4 mb-4 rounded shadow-md hover:shadow-lg transition-shadow">
+          {/* <div className="bg-white p-4 mb-4 rounded shadow-md hover:shadow-lg transition-shadow">
             <p className="text-xl font-semibold">Sub Total Orders: {subTotalOrders}</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

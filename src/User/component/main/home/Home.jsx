@@ -7,7 +7,7 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3030/products")
+    axios.get("http://localhost:3031/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -21,7 +21,7 @@ function Home() {
      
       <Navbar />
 
-      <div className="flex flex-col lg:flex-row h-screen mt-5 bg-stone-100">
+      <div className="flex flex-col lg:flex-row h-screen mt-1 bg-stone-100">
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start p-8">
           <h1 className="text-4xl lg:text-7xl font-bold mb-10 italic hover:not-italic text-orange-900">
             Baby Essential Fashion & Nursery
@@ -30,10 +30,10 @@ function Home() {
         </div>
         <div className="flex-1">
           <img
-            src="https://static.vecteezy.com/system/resources/thumbnails/035/583/699/small/ai-generated-cute-little-girl-in-a-knitted-hat-and-scarf-on-a-light-background-adorable-little-baby-portrait-cute-baby-girl-indoor-ai-generated-free-photo.jpg"
+            src="https://w0.peakpx.com/wallpaper/586/490/HD-wallpaper-cute-baby-cute-baby.jpg"
             alt="Baby Fashion"
             className="w-full"
-            style={{ height: '85vh' }}
+            style={{ height: '120vh' }}
           />
         </div>
       </div>

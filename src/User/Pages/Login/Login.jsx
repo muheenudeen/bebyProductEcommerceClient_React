@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext/AuthContext';
+
 const Login = () => {
   const { login } = useContext(AuthContext);
 
@@ -18,8 +19,7 @@ const Login = () => {
     }),
     onSubmit: (values) => {
       const { email, password } = values;
-      const userId = 'exampleUserId'; // Replace with your user ID logic
-      login(userId, email);
+      login(email, password);
     }
   });
 
