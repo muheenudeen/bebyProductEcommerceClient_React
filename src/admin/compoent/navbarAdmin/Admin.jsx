@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../User/AuthContext/AuthContext';
 
+
 function Admin() {
   const { isLoggedIn, logout} = useContext(AuthContext);
 

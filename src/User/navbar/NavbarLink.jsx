@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthContext';
 import axios from 'axios';
 
@@ -9,14 +9,17 @@ const Navbar = ({ onSearch }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isLoggedIn, logout, cart, user } = useContext(AuthContext);
 
+  const navigate = useNavigate()
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(()=>{
-    axios.get()
+  // useEffect(() => {
+  //   axios.get()
 
-  },[])
+  // }, [])
+
 
   const handleSearchChange = (event) => {
     setSearchItem(event.target.value);
@@ -35,6 +38,8 @@ const Navbar = ({ onSearch }) => {
     logout();
     closeModal();
   };
+
+
 
   return (
     <>
@@ -56,8 +61,9 @@ const Navbar = ({ onSearch }) => {
               value={searchItem}
               className="hidden md:block p-2 rounded bg-white text-grey"
               onChange={handleSearchChange}
+              onFocus={() => navigate('/shop')}
             />
-            <select onChange={handleSearchChange} className="hidden md:block p-2 rounded bg-white text-grey">
+            <select onChange={handleSearchChange} onFocus={() => navigate('/shop')} className="hidden md:block p-2 rounded bg-white text-grey">
               <option value="">All</option>
               <option value="dress">Dress</option>
               <option value="food">Food</option>
@@ -134,7 +140,7 @@ const Navbar = ({ onSearch }) => {
                 alt="Profile"
                 className="w-10 h-10 rounded-full"
               />
-              <span>{user?.name || ""}</span>
+              <span>{user?.name || "Thankyou"}</span>
             </div>
             <div className="mt-6 flex justify-end space-x-4">
               <button

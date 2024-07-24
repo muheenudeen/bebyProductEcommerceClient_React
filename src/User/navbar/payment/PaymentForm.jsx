@@ -7,8 +7,8 @@ const PaymentForm = () => {
     const location = useLocation();
     const { state } = location;
     const { amount, orderDetails } = state || { amount: 0, orderDetails: [] };
-    const {order}=useContext(AuthContext)
-  const id=localStorage.getItem(`id`)
+    const { order } = useContext(AuthContext)
+    const id = localStorage.getItem(`id`)
     const [formData, setFormData] = useState({
         firstName: '',
         location: '',
@@ -17,7 +17,7 @@ const PaymentForm = () => {
         cvv: '',
         amount: amount
     });
-        // console.log(order);
+    // console.log(order);
     const [toAdd, setToAdd] = useState([]);
 
     const paymentData = (payment) => {
@@ -26,9 +26,9 @@ const PaymentForm = () => {
             orderDetails
         ];
         // console.log(paymentData);
-        const allorder=[order,dataToPost]
+        const allorder = [order, dataToPost]
         console.log(allorder);
-        axios.patch(`http://localhost:8000/users/${id}`, {order:allorder})
+        axios.patch(`http://localhost:8000/users/${id}`, { order: allorder })
             .then(response => {
                 setToAdd([...toAdd, response.data]);
                 alert('Payment successful');
@@ -70,7 +70,7 @@ const PaymentForm = () => {
                     <input type="text" name="cvv" value={formData.cvv} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border rounded" required />
                 </div>
                 <button
-                    type="submit" 
+                    type="submit"
                     className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 "
                 >
                     Submit

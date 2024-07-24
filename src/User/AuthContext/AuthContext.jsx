@@ -10,8 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [order, setOrder] = useState([]);
   const [userId, setUserId] = useState('');
-  // const [block,setIsBlock] = useState([])
-  // const [isBlock,setIsBlock]=useState(false)
   const navigate = useNavigate();
   const id = localStorage.getItem('id');
 
@@ -47,11 +45,15 @@ export const AuthProvider = ({ children }) => {
           setIsLoggedIn(true);
           setTimeout(() => navigate("/adminhome"), 1000);
         } else if (findeData) {
-          toast.success('Login successful');
-          localStorage.setItem('id', findeData.id);
-          localStorage.setItem('user', JSON.stringify(findeData));
-          setIsLoggedIn(true);
-          setTimeout(() => navigate("/"), 1000);
+          if (findeData.isBlocked) {
+            toast.error('You are blocked');
+          } else {
+            toast.success('Login successful');
+            localStorage.setItem('id', findeData.id);
+            localStorage.setItem('user', JSON.stringify(findeData));
+            setIsLoggedIn(true);
+            setTimeout(() => navigate("/"), 1000);
+          }
         } else if (exitData) {
           toast.error('Enter your password correctly');
         } else {

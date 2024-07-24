@@ -7,6 +7,7 @@
       "email": "muheenudeen313@gmail.com",
       "password": "Mu@33333",
       "confirmPassword": "Mu@33333",
+      "isBlocked": false,
       "cart": [],
       "order": [
         [
@@ -71,6 +72,7 @@
       "email": "sali@gmail.com",
       "password": "Sali@123",
       "confirmPassword": "Sali@123",
+      "isBlocked": false,
       "cart": [],
       "order": []
     },
@@ -81,6 +83,7 @@
       "email": "Anas@gmail.com",
       "password": "Anas@123",
       "confirmPassword": "Anas@123",
+      "isBlocked": false,
       "cart": [],
       "order": []
     },
@@ -91,6 +94,17 @@
       "email": "rerer@gmail.com",
       "password": "Mm@11111",
       "confirmPassword": "Mm@11111",
+      "isBlocked": true,
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "e5d0",
+      "fname": "Anandu",
+      "sname": "anu",
+      "email": "anandu@gmail.com",
+      "password": "An@11111",
+      "confirmPassword": "An@11111",
       "cart": [],
       "order": []
     }
