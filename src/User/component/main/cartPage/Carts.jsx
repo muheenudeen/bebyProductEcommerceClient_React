@@ -64,10 +64,10 @@ const Carts = () => {
               </div>
             ))}
             <div className="flex justify-end mt-10">
-              <h1 className="font-semibold text-2xl">Total: ${totalAmount}</h1>
+              <h1 className="font-semibold text-2xl">Total: ${totalAmount} </h1>
             </div>
             <button onClick={handleCheckout} className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-              Checkout
+              Checkout 
             </button>
           </div>
         </div>
